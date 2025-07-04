@@ -58,7 +58,7 @@ const workflowButtonType = [
   },
   {
     name: "ButtonStyle",
-    supperClass: "Element",
+    supperClass: ["Element"],
     meta: {
       allowedIn: ["camunda:Button"],
     },
