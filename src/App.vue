@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import BpmnModeler from "bpmn-js/lib/Modeler";
+// @ts-ignore
 import camundaModdleDescriptor from "camunda-bpmn-moddle/resources/camunda";
 import xml from "./diagram";
 
@@ -106,12 +107,14 @@ onMounted(() => {
       camunda: customCamundaModdleDescriptor,
     },
   });
-  bpmnModeler.value.importXML(xml).then((res) => {
+  bpmnModeler.value.importXML(xml).then((res: any) => {
+    // @ts-ignore
     console.log(res, "res");
   });
 });
 const getXml = async () => {
   const { xml } = await bpmnModeler.value.saveXML({ format: true });
+  // @ts-ignore
   console.log(xml, "getXml");
   return xml;
 };
